@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LaunchApp</string>
+    <string-array name="names">
+        <item>PAD</item>
+        <item>Snapchat</item>
+        <item>Pokemon GO</item>
+        <item>BTD6</item>
+        <item>Instagram</item>
+        <item>Facebook</item>
+    </string-array>
+</resources>
