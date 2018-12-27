@@ -13,6 +13,7 @@ public class MyTileService extends TileService {
     private final int STATE_ON = 1;
     private final int STATE_OFF = 0;
     private int toggleState = STATE_ON;
+    static String currentPackage = "";
 
     @Override
     public void onTileAdded(){ Log.d(LOG_TAG, "onTileAdded");
@@ -53,23 +54,33 @@ public class MyTileService extends TileService {
 
     public void launchApp(){
         if(MainActivity.appName.equals("PAD")){
-            Intent i = getPackageManager().getLaunchIntentForPackage("jp.gungho.padEN");
-            startActivity(i);
+            try{
+                Intent i = getPackageManager().getLaunchIntentForPackage("jp.gungho.padEN");
+                startActivity(i);
+                currentPackage = "jp.gungho.padEN";
+            }catch(Exception e){
+                System.out.println("ERROR package not installed on phone.");
+            }
         }else if(MainActivity.appName.equals("Snapchat")){
             Intent i = getPackageManager().getLaunchIntentForPackage("com.snapchat.android");
             startActivity(i);
+            currentPackage = "com.snapchat.android";
         }else if(MainActivity.appName.equals("Pokemon GO")){
             Intent i = getPackageManager().getLaunchIntentForPackage("com.nianticlabs.pokemongo");
             startActivity(i);
+            currentPackage = "com.nianticlabs.pokemongo";
         }else if(MainActivity.appName.equals("BTD6")){
             Intent i = getPackageManager().getLaunchIntentForPackage("com.ninjakiwi.bloonstd6");
             startActivity(i);
+            currentPackage = "com.ninjakiwi.bloonstd6";
         }else if(MainActivity.appName.equals("Instagram")){
             Intent i = getPackageManager().getLaunchIntentForPackage("com.instagram.android");
             startActivity(i);
+            currentPackage = "com.instagram.android";
         }else if(MainActivity.appName.equals("Facebook")){
             Intent i = getPackageManager().getLaunchIntentForPackage("com.facebook.katana");
             startActivity(i);
+            currentPackage = "com.facebook.katana";
         }
     }
 }
